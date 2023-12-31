@@ -17,4 +17,27 @@ function iterativeFib(termCount) {
   return fibonacci;
 }
 
-console.log(iterativeFib(8)); // [0, 1, 1, 2, 3, 5, 8, 13]
+console.log(iterativeFib(8)); // [0, 1, 1, 2, 3, 5, 8, 13];
+
+function recursiveFib(termCount) {
+  function recursiveFibHelper(term) {
+    if (term === 1) {
+      return 0;
+    }
+
+    if (term === 2) {
+      return 1;
+    }
+
+    return recursiveFibHelper(term - 1) + recursiveFibHelper(term - 2);
+  }
+
+  const fibonacci = [];
+
+  while (fibonacci.length < termCount) {
+    fibonacci.push(recursiveFibHelper(fibonacci.length + 1));
+  }
+  return fibonacci;
+}
+
+console.log(recursiveFib(8));
