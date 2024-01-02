@@ -1,5 +1,5 @@
 function iterativeFib(termCount) {
-  if (termCount === 0) return null;
+  if (termCount <= 0) return null;
 
   if (termCount === 1) return [0];
 
@@ -20,6 +20,9 @@ function iterativeFib(termCount) {
 console.log(iterativeFib(8)); // [0, 1, 1, 2, 3, 5, 8, 13];
 
 function recursiveFib(termCount) {
+
+  if (termCount <= 0) return null
+
   function recursiveFibHelper(term) {
     if (term === 1) {
       return 0;
