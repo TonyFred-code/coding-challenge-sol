@@ -7,11 +7,18 @@ function iterativeFib(termCount) {
 
   const fibonacci = [0, 1];
 
+  const memo = {};
+
   for (let i = 2; i < termCount; i += 1) {
-    const firstPrev = fibonacci[i - 2];
-    const secondPrev = fibonacci[i - 1];
-    const term = firstPrev + secondPrev;
-    fibonacci.push(term);
+    if (i in memo) {
+      fibonacci.push(memo[i]);
+    } else {
+      const firstPrev = fibonacci[i - 2];
+      const secondPrev = fibonacci[i - 1];
+      const term = firstPrev + secondPrev;
+      memo[i] = term;
+      fibonacci.push(term);
+    }
   }
 
   return fibonacci;
@@ -20,10 +27,16 @@ function iterativeFib(termCount) {
 console.log(iterativeFib(8)); // [0, 1, 1, 2, 3, 5, 8, 13];
 
 function recursiveFib(termCount) {
+  if (termCount <= 0) return null;
 
-  if (termCount <= 0) return null
+  const memo = {};
 
   function recursiveFibHelper(term) {
+
+    if (term in memo) {
+      return memo[term];
+    }
+
     if (term === 1) {
       return 0;
     }
@@ -32,7 +45,9 @@ function recursiveFib(termCount) {
       return 1;
     }
 
-    return recursiveFibHelper(term - 1) + recursiveFibHelper(term - 2);
+    memo[term] = recursiveFibHelper(term - 1) + recursiveFibHelper(term - 2)
+
+    return memo[term];
   }
 
   const fibonacci = [];
