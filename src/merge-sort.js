@@ -1,5 +1,8 @@
 function mergeSort(array) {
   const arrLen = array.length;
+
+  if (arrLen === 0) return [];
+
   if (arrLen === 1) {
     return array;
   }
