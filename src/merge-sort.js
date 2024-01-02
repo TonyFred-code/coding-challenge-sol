@@ -22,7 +22,6 @@ function mergeSort(array) {
         n += 1;
       }
       k += 1;
-      console.log({ merged });
     }
 
     for (; m < arrOneLen; m += 1) {
@@ -42,13 +41,10 @@ function mergeSort(array) {
 
   const mid = Math.floor(arrLen / 2);
 
-  let leftArray = array.slice(0, mid);
-  let rightArray = array.slice(mid, arrLen);
-  leftArray = mergeSort(leftArray);
-  rightArray = mergeSort(rightArray);
+  const leftArray = array.slice(0, mid);
+  const rightArray = array.slice(mid, arrLen);
 
-  const merged = merge(leftArray, rightArray);
-  return merged;
+  return merge(mergeSort(leftArray), mergeSort(rightArray));
 }
 
 const test1 = [3, 2, 1, 13, 8, 5, 0, 1];
