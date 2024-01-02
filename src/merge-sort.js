@@ -5,7 +5,6 @@ function mergeSort(array) {
   }
 
   function merge(arrayOne, arrayTwo) {
-    // return [...arrayOne, ...arrayTwo];
     let m = 0;
     let n = 0;
     let k = 0;
@@ -15,7 +14,6 @@ function mergeSort(array) {
     const arrTwoLen = arrayTwo.length;
 
     while (m < arrOneLen && n < arrTwoLen) {
-
       if (arrayOne[m] < arrayTwo[n]) {
         merged[k] = arrayOne[m];
         m += 1;
@@ -24,7 +22,7 @@ function mergeSort(array) {
         n += 1;
       }
       k += 1;
-      console.log({merged});
+      console.log({ merged });
     }
 
     for (; m < arrOneLen; m += 1) {
@@ -39,23 +37,16 @@ function mergeSort(array) {
       k += 1;
     }
 
-    console.log({
-        merged,
-        arrayOne,
-        arrayTwo
-    })
     return merged;
   }
 
   const mid = Math.floor(arrLen / 2);
+
   let leftArray = array.slice(0, mid);
   let rightArray = array.slice(mid, arrLen);
-  console.log({
-    leftArray,
-    rightArray,
-  })
   leftArray = mergeSort(leftArray);
   rightArray = mergeSort(rightArray);
+
   const merged = merge(leftArray, rightArray);
   return merged;
 }
