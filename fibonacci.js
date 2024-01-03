@@ -51,3 +51,26 @@ function recursiveFib(termCount) {
 }
 
 console.log(recursiveFib(8));
+
+
+/*
+└── .vscode
+│   ├── settings.json
+├── dist
+│   ├── index.html
+│   ├── main.bundle.js
+│   ├── main.bundle.js.map
+├── node_modules/
+├── package.json
+├── package-lock.json
+├── README.md
+├── src
+│   ├── fibonacci.js
+│   ├── index.html
+│   ├── index.js
+│   └── merge-sort.js
+├── webpack.common.js
+├── webpack.dev.js
+└── webpack.prod.js
+
+*/
